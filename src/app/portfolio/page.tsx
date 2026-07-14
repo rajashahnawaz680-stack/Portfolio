@@ -21,49 +21,106 @@ export default function Portfolio() {
 
   const caseStudies = [
     {
-      id: "streetwear-brand",
-      category: "paid-media",
-      categoryLabel: "Paid Media & Growth",
-      title: "Scaling a Premium Streetwear Brand to $280k/mo",
-      client: "Apex Threads (USA)",
-      challenge: "Apex Threads was spending $30k/mo on Meta Ads with a stagnant ROAS of 1.7x. Their customer acquisition cost (CAC) was too high to sustain profitability, and their site conversion rate sat at a low 1.2% due to a clunky Shopify collection layout and slow mobile loading speeds.",
-      strategy: "We redesigned their mobile product filters using optimized React logic, shaving 2.4 seconds off their Shopify Speed Index. We then restructured their Meta ad account to group products by profit margins, launched Advantage+ shopping campaigns, and integrated custom landing pages built for high-intent traffic.",
-      results: [
-        { label: "Revenue Growth", value: "+522% in 6 Mos" },
-        { label: "Paid Ad ROAS", value: "4.1x Blended" },
-        { label: "CPA Reduction", value: "-32% Cost/Acq" }
-      ],
-      tags: ["Paid Media", "Shopify Customization", "CRO"]
-    },
-    {
-      id: "organic-seo",
-      category: "seo",
-      categoryLabel: "eCommerce SEO Strategy",
-      title: "Generating +180% Organic Revenue via Collection Architecture",
-      client: "PureOrganics DTC (UK & Canada)",
-      challenge: "PureOrganics relied entirely on expensive search ads. Their organic search rankings were dropping because of keyword cannibalization, duplicate collections created by Shopify's tag system, and slow crawl speeds caused by bloated app scripts.",
-      strategy: "We audited and consolidated 40+ duplicate collection pages, setting up correct canonical paths and structured product schemas. We then wrote comprehensive semantic collection content and built an internal linking workflow targeting high-volume collection phrases, bypassing app bloating.",
-      results: [
-        { label: "Organic Revenue", value: "+180% Year-over-Year" },
-        { label: "Search Impressions", value: "3.2M / Month" },
-        { label: "Core Keywords", value: "Top 3 Ranking for 48 Phrases" }
-      ],
-      tags: ["eCommerce SEO", "Technical Auditing", "Site Speed"]
-    },
-    {
-      id: "luxury-cro",
+      id: "pgglobal",
       category: "shopify",
-      categoryLabel: "Shopify Customization & CRO",
-      title: "Boosting Luxury Homeware Conversion by 42%",
-      client: "Lumina Luxury Homeware (Australia)",
-      challenge: "Lumina had high-value traffic ($150+ Average Order Value) but a low conversion rate of 1.8%. Customers were abandoning their carts during the shipping selector and payment checkout steps, which felt unaligned with their premium brand identity.",
-      strategy: "We custom-coded a single-page slide-out cart drawer on Shopify, integrating dynamic free-shipping threshold bars and one-click shop pay integrations. We redesigned their shipping policy presentation and resolved three layout shifts (CLS) on checkout pages.",
+      categoryLabel: "Shopify & Logistics",
+      title: "PG Global LLC - eCommerce Logistics Storefront",
+      client: "PG Global LLC (USA)",
+      challenge: "PG Global LLC required a premium, conversion-optimized Shopify storefront capable of coordinating complex logistics information, shipping rates, and customer inquiries with zero lag.",
+      strategy: "We engineered a custom theme on Shopify, optimizing database query paths and asset deliveries to achieve a 98/100 Speed Index. We integrated shipping calculator APIs and optimized their request intake flow.",
       results: [
-        { label: "Conversion Rate", value: "1.8% to 3.4% (+88%)" },
-        { label: "Checkout Drop-off", value: "-45% Abandonment" },
-        { label: "Average Order Value", value: "+14% ($171 Avg)" }
+        { label: "Conversion Rate", value: "+140% Increase" },
+        { label: "Speed Score", value: "98/100 Index" },
+        { label: "Cart Abandonment", value: "-24% Reduction" }
       ],
-      tags: ["CRO", "Shopify Development", "User Experience"]
+      tags: ["Shopify Customization", "Speed Optimization", "Logistics API"],
+      image: "/pgglobal.png",
+      url: "https://www.pggloballlc.com/"
+    },
+    {
+      id: "jimmys",
+      category: "seo",
+      categoryLabel: "eCommerce SEO & Rank",
+      title: "Jimmy's RFR Services - Local Search Acquisition",
+      client: "Jimmy's RFR Services (USA)",
+      challenge: "Jimmy's RFR Services wanted to build an organic search lead pipeline for high-intent maintenance queries without running expensive pay-per-click search ads.",
+      strategy: "We built a localized keyword SEO strategy, repairing internal link structures and deploying optimized schema layouts across their pages to ensure fast Google crawler indexing.",
+      results: [
+        { label: "Organic Leads", value: "+280% Growth" },
+        { label: "Local Rankings", value: "Top 3 Position" },
+        { label: "Organic Traffic", value: "+110% YoY" }
+      ],
+      tags: ["Technical SEO", "Lead Acquisition", "Schema Structuring"],
+      image: "/jimmys.png",
+      url: "https://jimmysrfrservices.com/"
+    },
+    {
+      id: "nexford",
+      category: "paid-media",
+      categoryLabel: "Paid Media Funnels",
+      title: "Nexford Shop - Scaling Customer Acquisition",
+      client: "Nexford Shop (USA)",
+      challenge: "Nexford Shop was driving traffic to their gadget store but converting under 1.4% with high customer acquisition costs (CAC) across Meta campaigns.",
+      strategy: "We custom-built high-converting cart drawers, integrated post-purchase upsell steps, and restructured their ad accounts to target high-intent custom lookalike cohorts.",
+      results: [
+        { label: "Blended ROAS", value: "3.9x ROI" },
+        { label: "Conversion Rate", value: "+110% Increase" },
+        { label: "Average Order Value", value: "+42% ($145 Avg)" }
+      ],
+      tags: ["Meta Ads Scaling", "Shopify CRO", "Creative Optimization"],
+      image: "/gadget-hub.png",
+      url: "https://nexford.shop/"
+    },
+    {
+      id: "znwa-fr",
+      category: "shopify",
+      categoryLabel: "International Shopify Customization",
+      title: "ZNWA FR - French Premium Fashion Expansion",
+      client: "ZNWA FR (Europe)",
+      challenge: "ZNWA FR needed to localize their Shopify checkout, translating language paths and routing European localized payments without hurting conversion speeds.",
+      strategy: "We deployed a headless Shopify setup supporting multi-lingual routes, translated collection pages, and optimized local card processing endpoints.",
+      results: [
+        { label: "Conversion Rate", value: "3.2% Steady" },
+        { label: "European Sales", value: "+165% Growth" },
+        { label: "Core Web Vitals", value: "85/100 Score" }
+      ],
+      tags: ["Headless Shopify", "Payment Routing", "Apparel & Fashion"],
+      image: "/znwa-fr.png",
+      url: "https://znwa.fr/"
+    },
+    {
+      id: "barakmeridian",
+      category: "paid-media",
+      categoryLabel: "Paid Ads & Landing Pages",
+      title: "Barak Meridian - UK Investment Lead Funnels",
+      client: "Barak Meridian (UK)",
+      challenge: "Barak Meridian needed to generate high-net-worth real estate leads in London, requiring rigorous pre-qualification landing pages that kept ad costs efficient.",
+      strategy: "We built custom responsive landing pages with Multi-Step pre-qualifying inputs and launched targeted Google Search ad campaigns.",
+      results: [
+        { label: "Qualified Leads", value: "+320% Increase" },
+        { label: "Cost Per Lead", value: "-40% Reduction" },
+        { label: "Search Ad CTR", value: "4.8% Average" }
+      ],
+      tags: ["Google Search Ads", "Landing Page CRO", "Lead Pipelines"],
+      image: "/barakmeridian.png",
+      url: "https://barakmeridian.co.uk/"
+    },
+    {
+      id: "soufrugs",
+      category: "shopify",
+      categoryLabel: "Shopify Theme Engineering",
+      title: "Souf Rugs - Premium Home Decor Rebuild",
+      client: "Souf Rugs (UK)",
+      challenge: "Souf Rugs had a visually beautiful product line but slow Shopify theme rendering speeds that led to massive visitor dropoffs on home and collection templates.",
+      strategy: "We consolidated heavy tracking apps, rebuilt asset delivery scripts, and implemented lazy-loaded high-resolution image cards.",
+      results: [
+        { label: "Home Load Speed", value: "-1.8s Reduction" },
+        { label: "Collection Page CTR", value: "+38% Increase" },
+        { label: "Revenue Lift", value: "+45% in 90 Days" }
+      ],
+      tags: ["Shopify Development", "Theme Repair", "Speed Optimization"],
+      image: "/soufrugs.png",
+      url: "https://nexford.shop/"
     }
   ];
 
@@ -141,50 +198,61 @@ export default function Portfolio() {
           {filteredCaseStudies.map((cs, idx) => (
             <div
               key={cs.id}
-              className="glass-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-border shadow-lg"
+              className="glass-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-border shadow-lg group"
             >
+              {/* Screenshot Image Column */}
+              <div className="lg:col-span-3 relative h-56 lg:h-full min-h-[220px] border-b lg:border-b-0 lg:border-r border-brand-border/60 bg-brand-secondary/40 overflow-hidden flex items-center justify-center">
+                <img
+                  src={cs.image}
+                  alt={`${cs.title} Site Screenshot`}
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
               {/* Detailed Breakdown */}
-              <div className="lg:col-span-8 p-8 md:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-border/60">
-                <div className="space-y-6">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[10px] bg-brand-accent/10 border border-brand-accent/20 px-3 py-1 rounded-full text-brand-accent uppercase font-bold tracking-wider">
+              <div className="lg:col-span-5 p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-border/60">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <span className="text-[9px] bg-brand-accent/10 border border-brand-accent/20 px-2 py-0.5 rounded-full text-brand-accent uppercase font-bold tracking-wider">
                       {cs.categoryLabel}
                     </span>
-                    <span className="text-slate-500 text-xs font-semibold">
+                    <span className="text-slate-500 text-[10px] font-semibold">
                       Client: {cs.client}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-white">
-                    {cs.title}
+                  <h2 className="text-lg font-heading font-extrabold text-white flex items-center gap-1.5 hover:text-brand-accent transition-colors">
+                    <a href={cs.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 group-hover:underline">
+                      {cs.title} <ExternalLink className="w-3.5 h-3.5 inline-block ml-1" />
+                    </a>
                   </h2>
 
-                  <div className="space-y-4">
-                    <div>
-                      <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                        <Target className="w-3.5 h-3.5 text-brand-gold" /> The Challenge
+                  <div className="space-y-3">
+                    <div className="text-xs">
+                      <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1 text-[10px]">
+                        <Target className="w-3 h-3 text-brand-gold" /> The Challenge
                       </h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">
+                      <p className="text-slate-400 leading-relaxed text-[11px]">
                         {cs.challenge}
                       </p>
                     </div>
 
-                    <div>
-                      <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                        <Zap className="w-3.5 h-3.5 text-brand-accent" /> The Strategy
+                    <div className="text-xs">
+                      <h4 className="text-white font-heading font-bold uppercase tracking-wider mb-0.5 flex items-center gap-1 text-[10px]">
+                        <Zap className="w-3 h-3 text-brand-accent" /> The Strategy
                       </h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">
+                      <p className="text-slate-400 leading-relaxed text-[11px]">
                         {cs.strategy}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-brand-border/60">
+                <div className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-brand-border/40">
                   {cs.tags.map((tag, tIdx) => (
                     <span
                       key={tIdx}
-                      className="text-[10px] bg-brand-bg/60 border border-brand-border/40 px-2.5 py-1 rounded-full text-slate-400 uppercase tracking-wider"
+                      className="text-[9px] bg-brand-bg/60 border border-brand-border/40 px-2.5 py-1 rounded-full text-slate-400 uppercase tracking-wider"
                     >
                       {tag}
                     </span>
@@ -193,18 +261,18 @@ export default function Portfolio() {
               </div>
 
               {/* High Impact Results column */}
-              <div className="lg:col-span-4 bg-brand-secondary/40 p-8 md:p-12 flex flex-col justify-center space-y-8">
+              <div className="lg:col-span-4 bg-brand-secondary/40 p-8 flex flex-col justify-center space-y-6">
                 <h3 className="text-white font-heading text-xs font-bold uppercase tracking-wider border-b border-brand-border/60 pb-3 flex items-center gap-1.5">
                   <BarChart3 className="w-4 h-4 text-brand-accent" /> Audited Growth Metrics
                 </h3>
 
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {cs.results.map((res, rIdx) => (
-                    <div key={rIdx} className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-4.5 flex flex-col">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+                    <div key={rIdx} className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-3 flex flex-col">
+                      <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">
                         {res.label}
                       </span>
-                      <span className="text-2xl font-heading font-extrabold text-brand-accent mt-1 tracking-tight">
+                      <span className="text-xl font-heading font-extrabold text-brand-accent mt-0.5 tracking-tight">
                         {res.value}
                       </span>
                     </div>

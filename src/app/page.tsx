@@ -391,7 +391,7 @@ export default function Home() {
               Featured Case Study
             </span>
             <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-white mt-1">
-              Scaling a Premium Streetwear Brand to $280k/mo
+              Scaling PG Global LLC's Shipping Storefront
             </h2>
           </div>
 
@@ -404,30 +404,30 @@ export default function Home() {
                     Shopify Customization
                   </span>
                   <span className="text-[10px] bg-brand-bg border border-brand-border px-2.5 py-1 rounded-full text-slate-400 uppercase font-semibold tracking-wider">
-                    Paid Media Funnels
+                    Logistics API Integration
                   </span>
                 </div>
                 
                 <h3 className="text-2xl font-heading font-extrabold text-white mb-4">
-                  How a broken checkout & sub-optimal ad account was fixed to yield a 4.1x blended marketing ROAS.
+                  How database optimizations and custom calculator APIs yielded a 98/100 speed index.
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                  A high-end apparel brand was driving traffic but converting under 1.2%. By rebuilding their collection filter logic, fixing checkout bottlenecks on Shopify, and restructuring their Google Shopping + Meta ad campaigns, we scaled them past $280k/mo inside 6 months.
+                  PG Global LLC required a premium, conversion-optimized Shopify storefront capable of coordinating complex logistics information, shipping rates, and customer inquiries with zero lag. We engineered a custom theme on Shopify, optimizing database query paths and asset deliveries.
                 </p>
 
                 {/* Key results box */}
                 <div className="grid grid-cols-3 gap-4 bg-brand-bg/40 border border-brand-border/60 rounded-xl p-4 mb-6">
                   <div>
-                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Revenue Lift</span>
-                    <div className="text-lg font-heading font-extrabold text-brand-accent mt-0.5">+522%</div>
+                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Conversion Lift</span>
+                    <div className="text-lg font-heading font-extrabold text-brand-accent mt-0.5">+140%</div>
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Blended ROAS</span>
-                    <div className="text-lg font-heading font-extrabold text-brand-gold mt-0.5">4.1x</div>
+                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Speed Score</span>
+                    <div className="text-lg font-heading font-extrabold text-brand-gold mt-0.5">98/100</div>
                   </div>
                   <div>
-                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Conversion Rate</span>
-                    <div className="text-lg font-heading font-extrabold text-brand-teal mt-0.5">3.18%</div>
+                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Cart Abandonment</span>
+                    <div className="text-lg font-heading font-extrabold text-brand-teal mt-0.5">-24%</div>
                   </div>
                 </div>
               </div>
@@ -442,44 +442,12 @@ export default function Home() {
             </div>
 
             {/* Case Graphic panel */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-brand-secondary to-brand-bg p-8 flex flex-col justify-center items-center border-l lg:border-l border-t lg:border-t-0 border-brand-border/60 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-brand-accent/5 rounded-full blur-2xl pointer-events-none"></div>
-              
-              <div className="w-full bg-brand-card border border-brand-border rounded-xl p-5 shadow-xl relative z-10 flex flex-col space-y-4">
-                <span className="text-slate-400 font-heading text-xs font-bold uppercase tracking-wider block">
-                  Campaign KPI Roadmap
-                </span>
-                
-                <div className="space-y-3">
-                  <div>
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-slate-400">Shopify Checkout Speed Index</span>
-                      <span className="text-brand-accent font-semibold">98/100</span>
-                    </div>
-                    <div className="w-full bg-brand-bg h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-brand-accent h-full rounded-full" style={{ width: "98%" }}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-slate-400">Add to Cart Conversion</span>
-                      <span className="text-brand-accent font-semibold">6.2%</span>
-                    </div>
-                    <div className="w-full bg-brand-bg h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-brand-accent h-full rounded-full" style={{ width: "62%" }}></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-slate-400">Paid Media Acquisition Efficiency</span>
-                      <span className="text-brand-gold font-semibold">92%</span>
-                    </div>
-                    <div className="w-full bg-brand-bg h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-brand-gold h-full rounded-full" style={{ width: "92%" }}></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="lg:col-span-5 bg-brand-secondary/40 relative h-64 lg:h-full min-h-[300px] border-t lg:border-t-0 lg:border-l border-brand-border/60 overflow-hidden flex items-center justify-center">
+              <img
+                src="/pgglobal.png"
+                alt="PG Global LLC Website Preview"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </div>
         </div>
