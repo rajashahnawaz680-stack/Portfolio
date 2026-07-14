@@ -392,7 +392,7 @@ export default function Contact() {
 
                 {/* Time slot picker */}
                 {selectedDay && (
-                  <div className="space-y-3 pt-3 animate-fade-in">
+                  <div className="space-y-4 pt-3 animate-fade-in">
                     <label className="text-slate-400 font-heading text-xs font-semibold uppercase tracking-wider block">
                       Select Available Time Slot
                     </label>
@@ -411,6 +411,37 @@ export default function Contact() {
                           {time}
                         </button>
                       ))}
+                    </div>
+
+                    <div className="flex flex-col gap-2 pt-2">
+                      <label htmlFor="custom-time" className="text-slate-400 font-heading text-xs font-semibold uppercase tracking-wider">
+                        Or Choose a Custom Time (EST / GMT)
+                      </label>
+                      <input
+                        type="time"
+                        id="custom-time"
+                        value={selectedTime && !timeSlots.includes(selectedTime) ? (selectedTime.includes(" (Custom)") ? ((() => {
+                          // Extract time from format like "2:30 PM (Custom)" and convert to 24h for time input value
+                          const cleanTime = selectedTime.replace(" (Custom)", "");
+                          const [timePart, ampm] = cleanTime.split(" ");
+                          let [h, m] = timePart.split(":");
+                          let hour = parseInt(h);
+                          if (ampm === "PM" && hour < 12) hour += 12;
+                          if (ampm === "AM" && hour === 12) hour = 0;
+                          return `${hour.toString().padStart(2, '0')}:${m}`;
+                        })()) : "") : ""}
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          if (val) {
+                            const [h, m] = val.split(":");
+                            const hour = parseInt(h);
+                            const ampm = hour >= 12 ? "PM" : "AM";
+                            const formattedHour = hour % 12 || 12;
+                            setSelectedTime(`${formattedHour}:${m} ${ampm} (Custom)`);
+                          }
+                        }}
+                        className="bg-brand-bg/60 border border-brand-border rounded-lg px-4 py-3 text-slate-100 text-sm focus:outline-none focus:border-brand-accent transition-colors w-full"
+                      />
                     </div>
                   </div>
                 )}
