@@ -20,6 +20,7 @@ export default function Contact() {
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [bookingSuccess, setBookingSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -73,13 +74,49 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.website || !selectedDay || !selectedTime) {
       alert("Please fill out all fields and select a date and time slot from the scheduler widget.");
       return;
     }
-    setBookingSuccess(true);
+    
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "b0de84ad-aa51-4713-a871-c38782bbbac1",
+          subject: "New eCommerce Consultation Booking - Shah Nawaz Agency",
+          from_name: "Shah Nawaz Growth Agency",
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          monthly_revenue: formData.revenue,
+          primary_challenge: formData.challenge,
+          selected_day: selectedDay,
+          selected_time: selectedTime,
+          notes: formData.notes
+        })
+      });
+      
+      const result = await response.json();
+      if (result.success) {
+        setBookingSuccess(true);
+      } else {
+        alert("Something went wrong: " + result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit booking. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetBooking = () => {
@@ -387,9 +424,10 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 bg-gradient-to-r from-brand-accent to-brand-accent/90 hover:from-brand-accent hover:to-brand-accent text-white font-heading font-bold rounded-lg text-center transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-4 bg-gradient-to-r from-brand-accent to-brand-accent/90 hover:from-brand-accent hover:to-brand-accent text-white font-heading font-bold rounded-lg text-center transition-all duration-200 hover:-translate-y-0.5 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Confirm Strategic Consultation Booking
+                    {isSubmitting ? "Submitting Booking..." : "Confirm Strategic Consultation Booking"}
                   </button>
                 </div>
               </form>

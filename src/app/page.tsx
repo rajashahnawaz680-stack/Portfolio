@@ -26,6 +26,7 @@ export default function Home() {
   const [seoGrowth, setSeoGrowth] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
   const [formSuccess, setFormSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -107,19 +108,42 @@ export default function Home() {
     setFormData(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.website) return;
-    setFormSuccess(true);
-    setTimeout(() => {
-      setFormSuccess(false);
-      setFormData({
-        name: "",
-        email: "",
-        website: "",
-        revenue: "<$10k",
+    
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: "b0de84ad-aa51-4713-a871-c38782bbbac1",
+          subject: "New eCommerce Growth Audit Request - Shah Nawaz Agency",
+          from_name: "Shah Nawaz Growth Agency",
+          name: formData.name,
+          email: formData.email,
+          website: formData.website,
+          monthly_revenue: formData.revenue
+        })
       });
-    }, 5000);
+      
+      const result = await response.json();
+      if (result.success) {
+        setFormSuccess(true);
+      } else {
+        alert("Something went wrong: " + result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to submit audit request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -637,9 +661,10 @@ export default function Home() {
 
                     <button
                       type="submit"
-                      className="px-6 py-4 bg-gradient-to-r from-brand-accent to-brand-accent/90 hover:from-brand-accent hover:to-brand-accent text-white font-heading font-bold rounded-lg mt-2 text-center transition-all duration-200 hover:-translate-y-0.5 shadow-lg"
+                      disabled={isSubmitting}
+                      className="px-6 py-4 bg-gradient-to-r from-brand-accent to-brand-accent/90 hover:from-brand-accent hover:to-brand-accent text-white font-heading font-bold rounded-lg mt-2 text-center transition-all duration-200 hover:-translate-y-0.5 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Submit Audit Request
+                      {isSubmitting ? "Submitting..." : "Submit Audit Request"}
                     </button>
                   </form>
                 )}
