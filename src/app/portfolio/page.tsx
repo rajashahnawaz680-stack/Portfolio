@@ -201,11 +201,11 @@ export default function Portfolio() {
               className="glass-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-border shadow-lg group"
             >
               {/* Screenshot Image Column */}
-              <div className="lg:col-span-3 relative h-56 lg:h-full min-h-[220px] border-b lg:border-b-0 lg:border-r border-brand-border/60 bg-brand-secondary/40 overflow-hidden flex items-center justify-center">
+              <div className="lg:col-span-3 relative h-56 lg:h-full min-h-[220px] border-b lg:border-b-0 lg:border-r border-brand-border/60 bg-brand-secondary/20 overflow-hidden flex items-center justify-center p-3">
                 <img
                   src={cs.image}
                   alt={`${cs.title} Site Screenshot`}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               </div>
 
