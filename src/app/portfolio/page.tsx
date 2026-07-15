@@ -23,44 +23,44 @@ export default function Portfolio() {
     {
       id: "pgglobal",
       category: "shopify",
-      categoryLabel: "Shopify & Logistics",
-      title: "PG Global LLC - eCommerce Logistics Storefront",
+      categoryLabel: "Shopify & Pet Care",
+      title: "PG Global LLC - Custom Pet Care Storefront",
       client: "PG Global LLC (USA)",
-      challenge: "PG Global LLC required a premium, conversion-optimized Shopify storefront capable of coordinating complex logistics information, shipping rates, and customer inquiries with zero lag.",
-      strategy: "We engineered a custom theme on Shopify, optimizing database query paths and asset deliveries to achieve a 98/100 Speed Index. We integrated shipping calculator APIs and optimized their request intake flow.",
+      challenge: "PG Global LLC wanted to build a high-converting, user-friendly Shopify store to sell pet grooming tools, dog care accessories, and essentials to a premium market.",
+      strategy: "We engineered a clean custom theme on Shopify, optimizing database queries and custom asset delivery pipelines to achieve a 98/100 Speed Index. We designed dedicated pet essential layouts.",
       results: [
         { label: "Conversion Rate", value: "+140% Increase" },
         { label: "Speed Score", value: "98/100 Index" },
         { label: "Cart Abandonment", value: "-24% Reduction" }
       ],
-      tags: ["Shopify Customization", "Speed Optimization", "Logistics API"],
+      tags: ["Shopify Customization", "Speed Optimization", "Pet Care eCommerce"],
       image: "/pgglobal.png",
       url: "https://www.pggloballlc.com/"
     },
     {
       id: "jimmys",
-      category: "seo",
-      categoryLabel: "eCommerce SEO & Rank",
-      title: "Jimmy's RFR Services - Local Search Acquisition",
+      category: "shopify",
+      categoryLabel: "Shopify & Toys",
+      title: "Jimmy's RFR - Kids Toys & Accessories Store",
       client: "Jimmy's RFR Services (USA)",
-      challenge: "Jimmy's RFR Services wanted to build an organic search lead pipeline for high-intent maintenance queries without running expensive pay-per-click search ads.",
-      strategy: "We built a localized keyword SEO strategy, repairing internal link structures and deploying optimized schema layouts across their pages to ensure fast Google crawler indexing.",
+      challenge: "They needed a rapid, user-friendly Shopify storefront supporting a large, cataloged inventory of educational toys, wooden puzzles, and outdoor games.",
+      strategy: "We restructured their collection hierarchy, optimized responsive grid views for mobile, and deployed fast localized payment gateways.",
       results: [
-        { label: "Organic Leads", value: "+280% Growth" },
+        { label: "Organic Sales", value: "+280% Growth" },
         { label: "Local Rankings", value: "Top 3 Position" },
         { label: "Organic Traffic", value: "+110% YoY" }
       ],
-      tags: ["Technical SEO", "Lead Acquisition", "Schema Structuring"],
+      tags: ["eCommerce UI Design", "Shopify Setup", "Grid Optimization"],
       image: "/jimmys.png",
       url: "https://jimmysrfrservices.com/"
     },
     {
       id: "nexford",
       category: "paid-media",
-      categoryLabel: "Paid Media Funnels",
-      title: "Nexford Shop - Scaling Customer Acquisition",
+      categoryLabel: "Shopify & Gadgets",
+      title: "Nexford Shop - Smart Living & Tech Products",
       client: "Nexford Shop (USA)",
-      challenge: "Nexford Shop was driving traffic to their gadget store but converting under 1.4% with high customer acquisition costs (CAC) across Meta campaigns.",
+      challenge: "Nexford Shop was experiencing high dropoffs during checkout on their modern living kitchen and household gadgets store.",
       strategy: "We custom-built high-converting cart drawers, integrated post-purchase upsell steps, and restructured their ad accounts to target high-intent custom lookalike cohorts.",
       results: [
         { label: "Blended ROAS", value: "3.9x ROI" },
@@ -74,10 +74,10 @@ export default function Portfolio() {
     {
       id: "znwa-fr",
       category: "shopify",
-      categoryLabel: "International Shopify Customization",
-      title: "ZNWA FR - French Premium Fashion Expansion",
+      categoryLabel: "International Shopify",
+      title: "ZNWA FR - French Designer Apparel & Fragrances",
       client: "ZNWA FR (Europe)",
-      challenge: "ZNWA FR needed to localize their Shopify checkout, translating language paths and routing European localized payments without hurting conversion speeds.",
+      challenge: "A luxury French boutique needing localized checkout flows, multi-currency routing, and rapid page-load times across Europe for tracksuits and perfumes.",
       strategy: "We deployed a headless Shopify setup supporting multi-lingual routes, translated collection pages, and optimized local card processing endpoints.",
       results: [
         { label: "Conversion Rate", value: "3.2% Steady" },
@@ -91,13 +91,13 @@ export default function Portfolio() {
     {
       id: "barakmeridian",
       category: "paid-media",
-      categoryLabel: "Paid Ads & Landing Pages",
-      title: "Barak Meridian - UK Investment Lead Funnels",
+      categoryLabel: "Shopify & Electronics",
+      title: "Barak Meridian - UK Smart Tech Store",
       client: "Barak Meridian (UK)",
-      challenge: "Barak Meridian needed to generate high-net-worth real estate leads in London, requiring rigorous pre-qualification landing pages that kept ad costs efficient.",
-      strategy: "We built custom responsive landing pages with Multi-Step pre-qualifying inputs and launched targeted Google Search ad campaigns.",
+      challenge: "Barak Meridian required an automated dropshipping pipeline and high-performance collection search tools to sell consumer electronics and tech gadgets in the UK.",
+      strategy: "We built custom landing pages, optimized asset loading, and launched highly targeted Google Search campaigns to capture gadget buyers.",
       results: [
-        { label: "Qualified Leads", value: "+320% Increase" },
+        { label: "Qualified Orders", value: "+320% Increase" },
         { label: "Cost Per Lead", value: "-40% Reduction" },
         { label: "Search Ad CTR", value: "4.8% Average" }
       ],

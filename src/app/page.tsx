@@ -391,7 +391,7 @@ export default function Home() {
               Featured Case Study
             </span>
             <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-white mt-1">
-              Scaling PG Global LLC's Shipping Storefront
+              Scaling PG Global LLC's Pet Care Storefront
             </h2>
           </div>
 
@@ -404,15 +404,15 @@ export default function Home() {
                     Shopify Customization
                   </span>
                   <span className="text-[10px] bg-brand-bg border border-brand-border px-2.5 py-1 rounded-full text-slate-400 uppercase font-semibold tracking-wider">
-                    Logistics API Integration
+                    Pet Care eCommerce
                   </span>
                 </div>
                 
                 <h3 className="text-2xl font-heading font-extrabold text-white mb-4">
-                  How database optimizations and custom calculator APIs yielded a 98/100 speed index.
+                  How database optimizations and speed engineering yielded a 98/100 speed index.
                 </h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                  PG Global LLC required a premium, conversion-optimized Shopify storefront capable of coordinating complex logistics information, shipping rates, and customer inquiries with zero lag. We engineered a custom theme on Shopify, optimizing database query paths and asset deliveries.
+                  PG Global LLC wanted to build a high-converting, user-friendly Shopify store to sell pet grooming tools, dog care accessories, and essentials to a premium market. We engineered a clean custom theme, optimizing loading speeds and checkout pipelines.
                 </p>
 
                 {/* Key results box */}
