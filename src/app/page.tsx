@@ -30,12 +30,30 @@ export default function Home() {
   const [isPaused, setIsPaused] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedDay, setSelectedDay] = useState<string | null>(null);
+  const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     website: "",
     revenue: "<$10k",
+    challenge: "shopify-cro",
   });
+
+  const weekdays = [
+    { date: "Mon, Jul 20", label: "Monday" },
+    { date: "Tue, Jul 21", label: "Tuesday" },
+    { date: "Wed, Jul 22", label: "Wednesday" },
+    { date: "Thu, Jul 23", label: "Thursday" },
+    { date: "Fri, Jul 24", label: "Friday" }
+  ];
+
+  const timeSlots = [
+    "09:00 AM EST",
+    "11:00 AM EST",
+    "02:00 PM EST",
+    "04:00 PM EST"
+  ];
 
   // Animated counters on mount
   useEffect(() => {
@@ -278,20 +296,28 @@ export default function Home() {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.website) return;
+    if (!formData.name || !formData.email || !formData.website || !selectedDay || !selectedTime) {
+      alert("Please fill out all fields and select a date and time slot from the scheduler widget.");
+      return;
+    }
+    
     setIsSubmitting(true);
+    
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: "b0de84ad-aa51-4713-a871-c38782bbbac1",
-          subject: "New eCommerce Growth Audit Request — Shah Nawaz Agency",
+          subject: "New eCommerce Consultation Booking - Shah Nawaz Agency",
           from_name: "Shah Nawaz Growth Agency",
           name: formData.name,
           email: formData.email,
           website: formData.website,
           monthly_revenue: formData.revenue,
+          primary_challenge: formData.challenge,
+          selected_day: selectedDay,
+          selected_time: selectedTime,
         }),
       });
       const result = await response.json();
@@ -755,51 +781,182 @@ export default function Home() {
                   </div>
                 ) : (
                   <form onSubmit={handleFormSubmit} className="flex flex-col gap-5 text-left">
-                    {[
-                      { id: "name", label: "Full Name", type: "text", placeholder: "e.g. Shah Nawaz" },
-                      { id: "email", label: "Professional Email", type: "email", placeholder: "e.g. partner@brand.com" },
-                      { id: "website", label: "Store URL (Shopify)", type: "url", placeholder: "e.g. https://yourstore.com" },
-                    ].map((field) => (
-                      <div key={field.id} className="flex flex-col gap-2">
-                        <label htmlFor={field.id} className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
-                          {field.label}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="name" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
+                          Full Name
                         </label>
                         <input
-                          type={field.type}
-                          id={field.id}
+                          type="text"
+                          id="name"
                           required
-                          value={formData[field.id as keyof typeof formData]}
+                          value={formData.name}
                           onChange={handleFormChange}
                           className="bg-brand-secondary border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/20 transition-colors placeholder:text-slate-300"
-                          placeholder={field.placeholder}
+                          placeholder="e.g. Shah Nawaz"
                         />
                       </div>
-                    ))}
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="email" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
+                          Professional Email
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          required
+                          value={formData.email}
+                          onChange={handleFormChange}
+                          className="bg-brand-secondary border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/20 transition-colors placeholder:text-slate-300"
+                          placeholder="e.g. partner@brand.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="website" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
+                          Store URL (Shopify)
+                        </label>
+                        <input
+                          type="url"
+                          id="website"
+                          required
+                          value={formData.website}
+                          onChange={handleFormChange}
+                          className="bg-brand-secondary border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/20 transition-colors placeholder:text-slate-300"
+                          placeholder="e.g. https://yourstore.com"
+                        />
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <label htmlFor="revenue" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
+                          Current Monthly Revenue
+                        </label>
+                        <select
+                          id="revenue"
+                          value={formData.revenue}
+                          onChange={handleFormChange}
+                          className="bg-brand-secondary border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/20 transition-colors"
+                        >
+                          <option value="<$10k">Under $10,000 / month</option>
+                          <option value="$10k-$50k">$10,000 – $50,000 / month</option>
+                          <option value="$50k-$200k">$50,000 – $200,000 / month</option>
+                          <option value="$200k+">Over $200,000 / month</option>
+                        </select>
+                      </div>
+                    </div>
 
                     <div className="flex flex-col gap-2">
-                      <label htmlFor="revenue" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
-                        Current Monthly Revenue
+                      <label htmlFor="challenge" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
+                        Primary Scaling Challenge
                       </label>
                       <select
-                        id="revenue"
-                        value={formData.revenue}
+                        id="challenge"
+                        value={formData.challenge}
                         onChange={handleFormChange}
                         className="bg-brand-secondary border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/20 transition-colors"
                       >
-                        <option value="<$10k">Under $10,000 / month</option>
-                        <option value="$10k-$50k">$10,000 – $50,000 / month</option>
-                        <option value="$50k-$200k">$50,000 – $200,000 / month</option>
-                        <option value="$200k+">Over $200,000 / month</option>
+                        <option value="shopify-cro">Shopify Checkout Speed & Conversion Optimization</option>
+                        <option value="performance-ads">Paid Ad Funnels (Meta/Google Ads/ROAS)</option>
+                        <option value="organic-traffic">Organic SEO Collection Ranking</option>
+                        <option value="multi-funnel">Comprehensive Full Funnel Strategy Consultation</option>
                       </select>
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full px-6 py-4 bg-gradient-to-r from-brand-accent to-emerald-600 hover:from-emerald-600 hover:to-brand-accent text-white font-heading font-bold rounded-xl mt-1 transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-brand-accent/15 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? "Submitting…" : "Submit Audit Request →"}
-                    </button>
+                    <div className="space-y-4 pt-4 border-t border-slate-200">
+                      <div className="flex justify-between items-center">
+                        <label className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4 text-brand-accent" /> Select Available Day (EST / GMT)
+                        </label>
+                        <span className="text-[10px] text-slate-400">Monday - Friday availability</span>
+                      </div>
+
+                      <div className="grid grid-cols-5 gap-2">
+                        {weekdays.map((day) => (
+                          <button
+                            key={day.date}
+                            type="button"
+                            onClick={() => setSelectedDay(day.date)}
+                            className={`py-3.5 rounded-xl text-center flex flex-col justify-center transition-all duration-150 ${
+                              selectedDay === day.date
+                                ? "bg-brand-accent text-white shadow-[0_0_12px_rgba(16,185,129,0.25)] border-transparent"
+                                : "bg-white border border-slate-200 hover:border-slate-400 text-slate-600"
+                            }`}
+                          >
+                            <span className="text-xs font-bold font-heading">{day.label.slice(0, 3)}</span>
+                            <span className="text-[10px] mt-0.5 opacity-80">{day.date.split(" ")[2]}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {selectedDay && (
+                      <div className="space-y-4 pt-3 animate-fade-in">
+                        <label className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider block">
+                          Select Available Time Slot
+                        </label>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                          {timeSlots.map((time) => (
+                            <button
+                              key={time}
+                              type="button"
+                              onClick={() => setSelectedTime(time)}
+                              className={`py-3.5 text-center text-xs font-heading font-semibold rounded-xl transition-all duration-150 border ${
+                                selectedTime === time
+                                  ? "bg-brand-accent/10 border-brand-accent text-brand-accent"
+                                  : "bg-white border-slate-200 hover:border-slate-400 text-slate-600"
+                              }`}
+                            >
+                              {time}
+                            </button>
+                          ))}
+                        </div>
+
+                        <div className="flex flex-col gap-2 pt-2">
+                          <label htmlFor="custom-time" className="text-slate-500 font-heading text-xs font-semibold uppercase tracking-wider">
+                            Or Choose a Custom Time (EST / GMT)
+                          </label>
+                          <input
+                            type="time"
+                            id="custom-time"
+                            value={selectedTime && !timeSlots.includes(selectedTime) ? (selectedTime.includes(" (Custom)") ? ((() => {
+                              const cleanTime = selectedTime.replace(" (Custom)", "");
+                              const [timePart, ampm] = cleanTime.split(" ");
+                              let [h, m] = timePart.split(":");
+                              let hour = parseInt(h);
+                              if (ampm === "PM" && hour < 12) hour += 12;
+                              if (ampm === "AM" && hour === 12) hour = 0;
+                              return `${hour.toString().padStart(2, '0')}:${m}`;
+                            })()) : "") : ""}
+                            onChange={(e) => {
+                              const val = e.target.value;
+                              if (val) {
+                                const [h, m] = val.split(":");
+                                const hour = parseInt(h);
+                                const ampm = hour >= 12 ? "PM" : "AM";
+                                const formattedHour = hour % 12 || 12;
+                                setSelectedTime(`${formattedHour}:${m} ${ampm} (Custom)`);
+                              }
+                            }}
+                            className="bg-brand-secondary border border-slate-200 rounded-xl px-4 py-3 text-slate-800 text-sm focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent/20 transition-colors w-full"
+                          />
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="space-y-4 pt-4 border-t border-slate-200">
+                      <div className="flex items-center gap-2 text-xs text-slate-500">
+                        <ShieldCheck className="w-4 h-4 text-brand-accent flex-shrink-0" />
+                        <span>Your URL & data remains strictly private. We do not share lead information.</span>
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full px-6 py-4 bg-gradient-to-r from-brand-accent to-emerald-600 hover:from-emerald-600 hover:to-brand-accent text-white font-heading font-bold rounded-xl mt-1 transition-all duration-200 hover:-translate-y-0.5 shadow-lg shadow-brand-accent/15 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isSubmitting ? "Submitting Booking..." : "Confirm Strategic Consultation Booking →"}
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>
