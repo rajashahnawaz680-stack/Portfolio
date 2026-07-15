@@ -425,11 +425,11 @@ export default function Home() {
 
           <div className="glass-card rounded-xl overflow-hidden flex flex-col gap-0 border border-brand-border shadow-lg group">
             {/* Screenshot Image Row on Top (Full Widescreen Width) */}
-            <div className="relative w-full h-64 md:h-[450px] bg-brand-secondary/10 overflow-hidden flex items-center justify-center p-4 border-b border-brand-border/60">
+            <div className="relative w-full h-64 md:h-[450px] bg-brand-secondary/10 overflow-hidden border-b border-brand-border/60">
               <img
                 src="/pgglobal.png"
                 alt="PG Global LLC Website Preview"
-                className="w-full h-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
               />
             </div>
 
