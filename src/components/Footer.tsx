@@ -17,7 +17,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8 relative overflow-hidden">
+    <footer className="bg-brand-bg border-t border-slate-200 pt-16 pb-8 relative overflow-hidden">
       {/* Ambient glow */}
       <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -27,12 +27,12 @@ export default function Footer() {
           {/* Brand column */}
           <div className="sm:col-span-2">
             <div className="flex items-center gap-1.5 mb-4">
-              <span className="text-white font-heading font-extrabold text-lg tracking-tight">
+              <span className="text-slate-900 font-heading font-extrabold text-lg tracking-tight">
                 SHAH NAWAZ
               </span>
               <span className="w-2 h-2 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(5,150,105,0.6)] animate-pulse" />
             </div>
-            <p className="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed">
+            <p className="text-slate-500 text-sm max-w-sm mb-6 leading-relaxed">
               Shopify Expert &amp; eCommerce Growth Strategist. I take beginner-level Shopify stores,
               fix their foundations, and build the infrastructure needed to scale consistently.
             </p>
@@ -42,7 +42,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn Profile"
-                className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
+                className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-accent hover:border-brand-accent hover:bg-slate-50 transition-colors shadow-sm"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -51,14 +51,14 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter Profile"
-                className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
+                className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-accent hover:border-brand-accent hover:bg-slate-50 transition-colors shadow-sm"
               >
                 <Twitter className="w-4 h-4" />
               </a>
               <a
                 href="mailto:contact@shahnawaz.agency"
                 aria-label="Email"
-                className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
+                className="w-10 h-10 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-brand-accent hover:border-brand-accent hover:bg-slate-50 transition-colors shadow-sm"
               >
                 <Mail className="w-4 h-4" />
               </a>
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-white font-heading text-xs font-semibold uppercase tracking-wider mb-5">
+            <h4 className="text-slate-900 font-heading text-xs font-semibold uppercase tracking-wider mb-5">
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -75,7 +75,7 @@ export default function Footer() {
                 <li key={label}>
                   <a
                     href={href}
-                    className="text-slate-400 hover:text-white text-sm transition-colors"
+                    className="text-slate-500 hover:text-brand-accent text-sm transition-colors font-medium"
                   >
                     {label}
                   </a>
@@ -86,12 +86,12 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-heading text-xs font-semibold uppercase tracking-wider mb-5">
+            <h4 className="text-slate-900 font-heading text-xs font-semibold uppercase tracking-wider mb-5">
               Core Expertise
             </h4>
             <ul className="space-y-3">
               {services.map((item) => (
-                <li key={item} className="flex items-center gap-2 text-slate-400 text-sm">
+                <li key={item} className="flex items-center gap-2 text-slate-500 text-sm font-medium">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-accent flex-shrink-0" />
                   {item}
                 </li>
@@ -101,15 +101,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-xs text-center sm:text-left">
+        <div className="border-t border-slate-200 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-slate-400 text-xs text-center sm:text-left font-medium">
             &copy; {new Date().getFullYear()} Shah Nawaz Agency. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">
+            <a href="#" className="text-slate-400 hover:text-slate-600 text-xs transition-colors font-medium">
               Privacy Policy
             </a>
-            <a href="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">
+            <a href="#" className="text-slate-400 hover:text-slate-600 text-xs transition-colors font-medium">
               Terms of Service
             </a>
           </div>
