@@ -172,25 +172,6 @@ export default function Home() {
 
   const caseStudies = [
     {
-      id: "pgglobal",
-      category: "shopify",
-      categoryLabel: "Shopify & Pet Care",
-      title: "PG Global LLC — Custom Pet Care Storefront",
-      client: "PG Global LLC (USA)",
-      challenge:
-        "PG Global LLC needed a high-converting Shopify store to sell pet grooming tools and accessories to a premium market — starting from scratch with zero online presence.",
-      strategy:
-        "We engineered a clean custom Shopify theme, optimized database queries and asset delivery pipelines to achieve a 98/100 Speed Index. Dedicated pet essential layouts were designed for maximum clarity.",
-      results: [
-        { label: "Conversion Rate", value: "+140% Increase" },
-        { label: "Speed Score", value: "98/100 Index" },
-        { label: "Cart Abandonment", value: "-24% Reduction" },
-      ],
-      tags: ["Shopify Customization", "Speed Optimization", "Pet Care eCommerce"],
-      image: "/pgglobal.png",
-      url: "https://www.pggloballlc.com/",
-    },
-    {
       id: "jimmys",
       category: "shopify",
       categoryLabel: "Shopify & Toys",
@@ -514,11 +495,11 @@ export default function Home() {
 
           <div className="glass-card rounded-2xl overflow-hidden flex flex-col border border-slate-200 shadow-sm group">
             {/* Full-width screenshot */}
-            <div className="relative w-full h-64 md:h-[450px] overflow-hidden border-b border-slate-200">
+            <div className="relative w-full overflow-hidden border-b border-slate-200 bg-slate-50 flex items-center justify-center">
               <img
                 src="/pgglobal.png"
                 alt="PG Global LLC Website Preview"
-                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                className="w-full h-auto object-contain object-top transition-transform duration-500 group-hover:scale-[1.01]"
               />
             </div>
 
@@ -593,11 +574,11 @@ export default function Home() {
                 className="glass-card rounded-2xl overflow-hidden flex flex-col border border-slate-200 shadow-sm group"
               >
                 {/* Screenshot full-width */}
-                <div className="relative w-full h-64 md:h-[400px] lg:h-[450px] overflow-hidden border-b border-slate-200">
+                <div className="relative w-full overflow-hidden border-b border-slate-200 bg-slate-50 flex items-center justify-center">
                   <img
                     src={cs.image}
                     alt={`${cs.title} Site Screenshot`}
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                    className="w-full h-auto object-contain object-top transition-transform duration-500 group-hover:scale-[1.01]"
                   />
                 </div>
 
