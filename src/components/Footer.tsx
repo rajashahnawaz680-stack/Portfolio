@@ -1,109 +1,91 @@
 import React from "react";
 import Link from "next/link";
-import { ArrowUpRight, Mail, Linkedin, Twitter, Target } from "lucide-react";
+import { Mail, Linkedin, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050507] border-t border-brand-border pt-16 pb-8 relative overflow-hidden">
-      {/* Background glow decorator */}
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none"></div>
-      
+    <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8 relative overflow-hidden">
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Col 1: Brand details */}
+          {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-1.5 mb-4 group">
+            <div className="flex items-center gap-1.5 mb-4">
               <span className="text-white font-heading font-extrabold text-lg tracking-tight">
                 SHAH NAWAZ
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_#10b981]"></span>
-            </Link>
-            <p className="text-slate-400 text-sm max-w-sm mb-6">
-              Shopify Expert & eCommerce Growth Strategist. Scaling online brands to 7 & 8 figures with customized high-performance SEO, CRO, and performance marketing.
+              <span className="w-1.5 h-1.5 rounded-full bg-brand-accent shadow-[0_0_8px_rgba(5,150,105,0.6)]" />
+            </div>
+            <p className="text-slate-400 text-sm max-w-sm mb-6 leading-relaxed">
+              Shopify Expert & eCommerce Growth Strategist. I take beginner-level Shopify stores,
+              optimize their foundations, and scale them to consistent revenue milestones.
             </p>
             <div className="flex gap-3">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-brand-card/50 border border-brand-border flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
-                aria-label="LinkedIn Profile"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-brand-card/50 border border-brand-border flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
-                aria-label="Twitter Profile"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:contact@shahnawaz.agency"
-                className="w-10 h-10 rounded-lg bg-brand-card/50 border border-brand-border flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
-                aria-label="Email Address"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+              {[
+                { href: "https://linkedin.com", label: "LinkedIn", icon: Linkedin },
+                { href: "https://twitter.com", label: "Twitter", icon: Twitter },
+                { href: "mailto:contact@shahnawaz.agency", label: "Email", icon: Mail },
+              ].map(({ href, label, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-accent transition-colors"
+                  aria-label={label}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Col 2: Navigation Links */}
+          {/* Navigation */}
           <div>
             <h4 className="text-white font-heading text-xs font-semibold uppercase tracking-wider mb-4">
               Navigation
             </h4>
             <ul className="space-y-3">
-              <li>
-                <Link href="/" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/portfolio" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  Case Studies
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-slate-400 hover:text-white text-sm transition-colors">
-                  Book Consultation
-                </Link>
-              </li>
+              {[
+                { label: "Home", href: "#home" },
+                { label: "Services", href: "#services" },
+                { label: "Case Studies", href: "#portfolio" },
+                { label: "Book Audit", href: "#contact" },
+              ].map(({ label, href }) => (
+                <li key={label}>
+                  <a href={href} className="text-slate-400 hover:text-white text-sm transition-colors">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3: Services Brief */}
+          {/* Services */}
           <div>
             <h4 className="text-white font-heading text-xs font-semibold uppercase tracking-wider mb-4">
               Core Expertise
             </h4>
             <ul className="space-y-3 text-slate-400 text-sm">
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-brand-accent"></span>
-                Shopify Development
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-brand-accent"></span>
-                eCommerce SEO Strategy
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-brand-accent"></span>
-                Paid Performance Ads
-              </li>
-              <li className="flex items-center gap-1.5">
-                <span className="w-1 h-1 rounded-full bg-brand-accent"></span>
-                Conversion Rate Optimization
-              </li>
+              {[
+                "Shopify Development",
+                "eCommerce SEO",
+                "Paid Performance Ads",
+                "Conversion Rate Optimization",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-brand-accent flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Bottom footer */}
-        <div className="border-t border-brand-border/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-xs text-center md:text-left">
-            &copy; {new Date().getFullYear()} Shah Nawaz Agency. All rights reserved. Professional American English.
+            &copy; {new Date().getFullYear()} Shah Nawaz Agency. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="#" className="text-slate-500 hover:text-slate-300 text-xs transition-colors">

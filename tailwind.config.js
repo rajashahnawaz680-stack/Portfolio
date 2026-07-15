@@ -9,13 +9,13 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          bg: "#09090b",        /* Rich Obsidian */
-          secondary: "#121214",  /* Deep Slate Black */
-          card: "#18181b",       /* Zinc card background */
-          border: "rgba(255, 255, 255, 0.08)",
-          accent: "#10b981",     /* Emerald Mint */
-          teal: "#06b6d4",       /* Digital Teal */
-          gold: "#fbbf24",       /* Luxury Gold */
+          bg: "#f8fafc",        /* Light Slate Background */
+          secondary: "#f1f5f9",  /* Soft Slate Sections */
+          card: "#ffffff",       /* Clean White Cards */
+          border: "rgba(15, 23, 42, 0.08)", /* Slate Borders */
+          accent: "#059669",     /* Deep Emerald Accent */
+          teal: "#0891b2",       /* Darker Teal Accent */
+          gold: "#d97706",       /* Premium Luxury Gold */
         }
       },
       fontFamily: {

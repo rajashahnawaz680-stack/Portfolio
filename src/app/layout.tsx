@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${outfit.variable} font-sans bg-brand-bg text-slate-100 antialiased`}>
+      <body className={`${inter.variable} ${outfit.variable} font-sans bg-brand-bg text-slate-800 antialiased`}>
         {children}
       </body>
     </html>
