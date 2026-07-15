@@ -442,11 +442,11 @@ export default function Home() {
             </div>
 
             {/* Case Graphic panel */}
-            <div className="lg:col-span-5 bg-brand-secondary/20 relative h-64 lg:h-full min-h-[300px] border-t lg:border-t-0 lg:border-l border-brand-border/60 overflow-hidden flex items-center justify-center p-4">
+            <div className="lg:col-span-5 bg-brand-secondary/20 relative h-64 lg:h-full min-h-[300px] border-t lg:border-t-0 lg:border-l border-brand-border/60 overflow-hidden">
               <img
                 src="/pgglobal.png"
                 alt="PG Global LLC Website Preview"
-                className="w-full h-full object-contain object-top transition-transform duration-500 hover:scale-[1.02]"
+                className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]"
               />
             </div>
           </div>

@@ -198,86 +198,82 @@ export default function Portfolio() {
           {filteredCaseStudies.map((cs, idx) => (
             <div
               key={cs.id}
-              className="glass-card rounded-2xl overflow-hidden flex flex-col gap-0 border border-brand-border shadow-lg group"
+              className="glass-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-border shadow-lg group"
             >
-              {/* Widescreen Screenshot Image Row (Full Width) */}
-              <div className="relative w-full h-64 md:h-[400px] lg:h-[480px] border-b border-brand-border/60 bg-brand-secondary/10 overflow-hidden flex items-center justify-center p-4">
+              {/* Left Column: Full-Height Screenshot (5 Columns) */}
+              <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-brand-border/60 bg-brand-secondary/20 overflow-hidden">
                 <img
                   src={cs.image}
                   alt={`${cs.title} Site Screenshot`}
-                  className="w-full h-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.01]"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </div>
 
-              {/* Bottom Row Details Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                {/* Detailed Breakdown */}
-                <div className="lg:col-span-8 p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-border/60">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2.5 flex-wrap">
-                      <span className="text-[9px] bg-brand-accent/10 border border-brand-accent/20 px-2.5 py-1 rounded-full text-brand-accent uppercase font-bold tracking-wider">
-                        {cs.categoryLabel}
-                      </span>
-                      <span className="text-slate-500 text-[10px] font-semibold">
-                        Client: {cs.client}
-                      </span>
-                    </div>
-
-                    <h2 className="text-xl font-heading font-extrabold text-white flex items-center gap-1.5 hover:text-brand-accent transition-colors">
-                      <a href={cs.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 group-hover:underline">
-                        {cs.title} <ExternalLink className="w-4 h-4 inline-block ml-1" />
-                      </a>
-                    </h2>
-
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                          <Target className="w-3.5 h-3.5 text-brand-gold" /> The Challenge
-                        </h4>
-                        <p className="text-slate-400 leading-relaxed text-xs">
-                          {cs.challenge}
-                        </p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                          <Zap className="w-3.5 h-3.5 text-brand-accent" /> The Strategy
-                        </h4>
-                        <p className="text-slate-400 leading-relaxed text-xs">
-                          {cs.strategy}
-                        </p>
-                      </div>
-                    </div>
+              {/* Right Column: Text & Metrics combined (7 Columns) */}
+              <div className="lg:col-span-7 p-8 flex flex-col justify-between space-y-6">
+                {/* Text details */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    <span className="text-[9px] bg-brand-accent/10 border border-brand-accent/20 px-2.5 py-1 rounded-full text-brand-accent uppercase font-bold tracking-wider">
+                      {cs.categoryLabel}
+                    </span>
+                    <span className="text-slate-500 text-[10px] font-semibold">
+                      Client: {cs.client}
+                    </span>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mt-6 pt-6 border-t border-brand-border/40">
-                    {cs.tags.map((tag, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="text-[10px] bg-brand-bg/60 border border-brand-border/40 px-3 py-1 rounded-full text-slate-400 uppercase tracking-wider"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                  <h2 className="text-xl font-heading font-extrabold text-white flex items-center gap-1.5 hover:text-brand-accent transition-colors">
+                    <a href={cs.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 group-hover:underline">
+                      {cs.title} <ExternalLink className="w-4 h-4 inline-block ml-1" />
+                    </a>
+                  </h2>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                      <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                        <Target className="w-3.5 h-3.5 text-brand-gold" /> The Challenge
+                      </h4>
+                      <p className="text-slate-400 leading-relaxed text-xs">
+                        {cs.challenge}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5 text-brand-accent" /> The Strategy
+                      </h4>
+                      <p className="text-slate-400 leading-relaxed text-xs">
+                        {cs.strategy}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                {/* High Impact Results column */}
-                <div className="lg:col-span-4 bg-brand-secondary/40 p-8 flex flex-col justify-center space-y-6">
-                  <h3 className="text-white font-heading text-xs font-bold uppercase tracking-wider border-b border-brand-border/60 pb-3 flex items-center gap-1.5">
-                    <BarChart3 className="w-4 h-4 text-brand-accent" /> Audited Growth Metrics
-                  </h3>
-
-                  <div className="space-y-4">
+                {/* Metrics & Tags Combined Row */}
+                <div className="space-y-6 pt-4 border-t border-brand-border/40">
+                  {/* Results Metrics grid */}
+                  <div className="grid grid-cols-3 gap-3">
                     {cs.results.map((res, rIdx) => (
-                      <div key={rIdx} className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-4 flex flex-col">
-                        <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">
+                      <div key={rIdx} className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-3 flex flex-col justify-center">
+                        <span className="text-[8px] uppercase font-bold text-slate-500 tracking-wider">
                           {res.label}
                         </span>
-                        <span className="text-2xl font-heading font-extrabold text-brand-accent mt-0.5 tracking-tight">
+                        <span className="text-lg font-heading font-extrabold text-brand-accent mt-0.5 tracking-tight">
                           {res.value}
                         </span>
                       </div>
+                    ))}
+                  </div>
+
+                  {/* Tags list */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {cs.tags.map((tag, tIdx) => (
+                      <span
+                        key={tIdx}
+                        className="text-[9px] bg-brand-bg/60 border border-brand-border/40 px-2 py-0.5 rounded-full text-slate-400 uppercase tracking-wider"
+                      >
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </div>
