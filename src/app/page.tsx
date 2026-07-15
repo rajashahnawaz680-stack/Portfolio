@@ -99,9 +99,37 @@ export default function Home() {
       quote: "Before working with Shah, our landing page converted at 1.8%. After his Shopify optimization and structural CRO modifications, we jumped to a steady 3.4% conversion rate. That instantly doubled our advertising efficiency.",
       author: "Rupert Vance",
       role: "Operations Manager, Lumina Luxury Homeware",
-      metric: "3.4% Conversion Rate (up from 1.8%)"
+      metric: "3.4% Conversion Rate"
+    },
+    {
+      quote: "PG Global needed a storefront that loads under 1.2s while serving multi-continent traffic. Shah Nawaz optimized our Shopify liquid rendering and custom API connectors, taking our Speed Index from 48 to 98.",
+      author: "David Chen",
+      role: "Operations Lead, PG Global LLC",
+      metric: "98/100 Shopify Speed Score"
+    },
+    {
+      quote: "Expanding apparel sales to all of Europe was a massive challenge until Shah integrated our localized multi-lingual pathways and payment routing. Our European checkout drop-offs dropped by 45%.",
+      author: "Antoine Dubois",
+      role: "Founder, ZNWA FR",
+      metric: "-45% Checkout Drop-offs"
+    },
+    {
+      quote: "Theme page-load times were causing a high bounce rate on our premium rug store. Shah rebuilt our collection grid script, speeding up template paint times. Our revenue scaled +45% in 90 days!",
+      author: "Amelie Watson",
+      role: "Creative Director, Souf Rugs",
+      metric: "+45% Revenue in 90 Days"
     }
   ];
+
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % testimonials.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused, testimonials.length]);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -395,59 +423,67 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="glass-card rounded-xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border border-brand-border">
-            {/* Case Text details */}
-            <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between">
-              <div>
-                <div className="flex gap-2 mb-6">
-                  <span className="text-[10px] bg-brand-bg border border-brand-border px-2.5 py-1 rounded-full text-slate-400 uppercase font-semibold tracking-wider">
-                    Shopify Customization
-                  </span>
-                  <span className="text-[10px] bg-brand-bg border border-brand-border px-2.5 py-1 rounded-full text-slate-400 uppercase font-semibold tracking-wider">
-                    Pet Care eCommerce
-                  </span>
-                </div>
-                
-                <h3 className="text-2xl font-heading font-extrabold text-white mb-4">
-                  How database optimizations and speed engineering yielded a 98/100 speed index.
-                </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                  PG Global LLC wanted to build a high-converting, user-friendly Shopify store to sell pet grooming tools, dog care accessories, and essentials to a premium market. We engineered a clean custom theme, optimizing loading speeds and checkout pipelines.
-                </p>
-
-                {/* Key results box */}
-                <div className="grid grid-cols-3 gap-4 bg-brand-bg/40 border border-brand-border/60 rounded-xl p-4 mb-6">
-                  <div>
-                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Conversion Lift</span>
-                    <div className="text-lg font-heading font-extrabold text-brand-accent mt-0.5">+140%</div>
-                  </div>
-                  <div>
-                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Speed Score</span>
-                    <div className="text-lg font-heading font-extrabold text-brand-gold mt-0.5">98/100</div>
-                  </div>
-                  <div>
-                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Cart Abandonment</span>
-                    <div className="text-lg font-heading font-extrabold text-brand-teal mt-0.5">-24%</div>
-                  </div>
-                </div>
-              </div>
-
-              <Link
-                href="/portfolio"
-                className="flex items-center gap-1.5 text-brand-accent hover:text-white transition-colors text-sm font-semibold w-fit"
-              >
-                <span>Read Full Case Study Details</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-
-            {/* Case Graphic panel */}
-            <div className="lg:col-span-5 bg-brand-secondary/20 relative h-64 lg:h-full min-h-[300px] border-t lg:border-t-0 lg:border-l border-brand-border/60 overflow-hidden">
+          <div className="glass-card rounded-xl overflow-hidden flex flex-col gap-0 border border-brand-border shadow-lg group">
+            {/* Screenshot Image Row on Top (Full Widescreen Width) */}
+            <div className="relative w-full h-64 md:h-[450px] bg-brand-secondary/10 overflow-hidden flex items-center justify-center p-4 border-b border-brand-border/60">
               <img
                 src="/pgglobal.png"
                 alt="PG Global LLC Website Preview"
-                className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-[1.02]"
+                className="w-full h-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.01]"
               />
+            </div>
+
+            {/* Bottom Row Details Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+              {/* Case Text details (Left Side) */}
+              <div className="lg:col-span-8 p-8 md:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-brand-border/60">
+                <div>
+                  <div className="flex gap-2 mb-6">
+                    <span className="text-[10px] bg-brand-bg border border-brand-border px-2.5 py-1 rounded-full text-slate-400 uppercase font-semibold tracking-wider">
+                      Shopify Customization
+                    </span>
+                    <span className="text-[10px] bg-brand-bg border border-brand-border px-2.5 py-1 rounded-full text-slate-400 uppercase font-semibold tracking-wider">
+                      Pet Care eCommerce
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-heading font-extrabold text-white mb-4">
+                    How database optimizations and speed engineering yielded a 98/100 speed index.
+                  </h3>
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                    PG Global LLC wanted to build a high-converting, user-friendly Shopify store to sell pet grooming tools, dog care accessories, and essentials to a premium market. We engineered a clean custom theme, optimizing loading speeds and checkout pipelines.
+                  </p>
+                </div>
+
+                <Link
+                  href="/portfolio"
+                  className="flex items-center gap-1.5 text-brand-accent hover:text-white transition-colors text-sm font-semibold w-fit"
+                >
+                  <span>Read Full Case Study Details</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              {/* Key results column (Right Side) */}
+              <div className="lg:col-span-4 bg-brand-secondary/40 p-8 md:p-12 flex flex-col justify-center space-y-6">
+                <h4 className="text-white font-heading text-xs font-bold uppercase tracking-wider border-b border-brand-border/60 pb-3 flex items-center gap-1.5">
+                  Audited Growth Metrics
+                </h4>
+                <div className="space-y-4">
+                  <div className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-4 flex flex-col">
+                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Conversion Lift</span>
+                    <div className="text-xl font-heading font-extrabold text-brand-accent mt-0.5">+140%</div>
+                  </div>
+                  <div className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-4 flex flex-col">
+                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Speed Score</span>
+                    <div className="text-xl font-heading font-extrabold text-brand-gold mt-0.5">98/100</div>
+                  </div>
+                  <div className="bg-brand-bg/50 border border-brand-border/60 rounded-xl p-4 flex flex-col">
+                    <span className="text-[9px] uppercase font-bold text-slate-500 tracking-wider">Cart Abandonment</span>
+                    <div className="text-xl font-heading font-extrabold text-brand-teal mt-0.5">-24%</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -469,7 +505,11 @@ export default function Home() {
 
         {/* Tab Testimonials container */}
         <div className="max-w-4xl mx-auto">
-          <div className="glass-card rounded-xl p-8 md:p-12 mb-8 relative border border-brand-border text-center flex flex-col items-center">
+          <div 
+            className="glass-card rounded-xl p-8 md:p-12 mb-8 relative border border-brand-border text-center flex flex-col items-center cursor-pointer transition-all duration-300"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <span className="text-6xl text-brand-accent/10 font-serif leading-none absolute top-4 left-6 select-none">“</span>
             
             <p className="text-white text-lg md:text-xl font-light italic leading-relaxed mb-8 relative z-10">

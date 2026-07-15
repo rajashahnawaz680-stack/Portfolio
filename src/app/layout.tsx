@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: "Shah Nawaz is a premium eCommerce Growth Specialist, Shopify Expert, SEO Strategist, and CRO Consultant. Scale your Shopify store and performance marketing ROI today.",
   keywords: "eCommerce Growth Specialist, Shopify Expert, SEO Strategist, Performance Marketing Consultant, CRO specialist, Shopify design, Shopify development, Digital marketing consultant, Shah Nawaz, eCommerce scale, traffic growth, conversion rate optimization",
   authors: [{ name: "Shah Nawaz" }],
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
